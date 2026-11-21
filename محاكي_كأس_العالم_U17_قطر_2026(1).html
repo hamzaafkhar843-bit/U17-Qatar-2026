@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101d30">
+<title>محاكي كأس العالم U17 قطر 2026</title>
+<style>
+:root{--bg:#0b1422;--panel:#142238;--panel2:#1b2d46;--gold:#e7c66d;--line:#60718a;--txt:#f4f6fa;--muted:#aebbd0;--green:#35c887;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0a1423,#101d30 55%,#17243a);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+header{padding:22px 18px 16px;background:radial-gradient(circle at 50% 0,#31435a,#101d30 65%);border-bottom:1px solid #34445b;text-align:center}
+.kicker{color:var(--gold);font-size:12px;letter-spacing:2px;font-weight:800}.title{font-size:clamp(25px,5vw,42px);font-weight:900;margin:5px 0}.sub{color:var(--muted);font-size:13px}
+.trophy{font-size:40px;margin:4px}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px;position:sticky;top:0;background:#0d1929ee;backdrop-filter:blur(10px);z-index:5;border-bottom:1px solid #293c55}
+button,select{font:inherit}button{border:1px solid #52647d;background:#1b2d46;color:var(--txt);border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
+button.active,button.primary{background:var(--gold);color:#182235;border-color:var(--gold)}button:disabled{opacity:.4;cursor:not-allowed}
+main{max-width:1500px;margin:auto;padding:16px}
+.panel{background:#132238;border:1px solid #30445f;border-radius:16px;padding:15px;margin-bottom:16px;box-shadow:0 10px 25px #0002}
+h2{font-size:20px;margin:0 0 8px}h3{font-size:16px;margin:0 0 8px}.muted{color:var(--muted);font-size:12px;line-height:1.6}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.stat{background:#1b2d46;padding:9px 13px;border-radius:10px;font-size:13px}.stat b{color:var(--gold);font-size:17px}
+.group-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px}
+.group{background:#192b43;border:1px solid #344a67;border-radius:13px;padding:12px}.group-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.letter{background:var(--gold);color:#152238;border-radius:8px;padding:4px 9px;font-weight:900}
+.team{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #ffffff12;font-size:14px}.team:last-of-type{border:0}.flag{font-size:21px;width:28px;text-align:center}.team select{margin-right:auto;max-width:130px;background:#0e1a2b;color:white;border:1px solid #52647d;border-radius:7px;padding:5px;font-size:12px}
+select{background:#0e1a2b;color:white;border:1px solid #52647d;border-radius:8px;padding:8px;max-width:100%;min-width:0}
+.thirds{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin-top:10px}
+.third{display:flex;gap:8px;align-items:center;background:#1a2b43;padding:8px;border-radius:9px}.third select{flex:1;width:100%}
+.progress{height:8px;background:#34445b;border-radius:9px;overflow:hidden;margin-top:8px}.progress span{display:block;height:100%;background:var(--gold);width:0}
+.bracket-wrap{overflow-x:auto;padding:10px 2px 18px;direction:ltr;scrollbar-color:#65758d #142238}
+.bracket{display:grid;grid-template-columns:210px 210px 210px 210px 210px 210px 210px 210px 210px;gap:13px;min-width:2020px;align-items:stretch}
+.round{display:flex;flex-direction:column;gap:12px;min-width:0}
+.round h3{text-align:center;color:var(--gold);direction:rtl;background:#1b2d46;padding:9px;border-radius:9px;position:sticky;top:0}
+.match{background:#172940;border:1px solid #40536e;border-radius:11px;padding:9px;display:flex;flex-direction:column;gap:6px;min-height:94px;direction:rtl}
+.match small{color:var(--muted);font-size:10px}
+.match select{width:100%;font-size:12px}
+.teamline{display:flex;align-items:center;justify-content:space-between;gap:5px;background:#0e1b2d;border-radius:7px;padding:7px;font-size:12px;min-height:32px}
+.teamline.won{border:1px solid var(--green);color:#a8f2d1}
+.center-final{display:flex;flex-direction:column;justify-content:center;gap:16px}
+.champion{border:1px solid var(--gold);background:linear-gradient(145deg,#44391e,#1b2b40);padding:18px;border-radius:15px;text-align:center}
+.champion .cup{font-size:45px}.champion strong{display:block;font-size:20px;color:var(--gold);margin-top:8px}
+.result-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:9px}
+.result{background:#1a2b43;padding:10px;border-radius:9px;display:flex;justify-content:space-between;gap:8px}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:20px}
+.hidden{display:none!important}.warning{color:#ffd98b}.ok{color:var(--green)}
+@media(max-width:600px){main{padding:10px}.panel{padding:12px}header{padding:18px 10px}.title{font-size:26px}nav{justify-content:stretch}nav button{flex:1;padding:9px 5px;font-size:12px}}
+</style></head>
+<body>
+<header><div class="kicker">FIFA U-17 WORLD CUP · QATAR 2026</div><div class="trophy">🏆</div><div class="title">طريق المجد</div><div class="sub">محاكي البطولة · 48 منتخباً · خطاطة تفاعلية من المجموعات إلى النهائي</div></header>
+<nav>
+<button class="active" data-tab="groups">المجموعات</button><button data-tab="bracket">خطاطة المسار</button><button data-tab="summary">المتأهلون والنتائج</button>
+<button id="reset">إعادة ضبط</button>
+</nav>
+<main>
+<section id="groups" class="tab">
+<div class="panel"><h2>مرحلة المجموعات</h2><div class="muted">حدد ترتيب كل مجموعة: الأول والثاني والثالث. بعد ذلك اختر أفضل 8 منتخبات من أصحاب المركز الثالث. الأسماء والمجموعات حسب قرعة FIFA الرسمية.</div>
+<div class="stats"><div class="stat">المنتخبات: <b>48</b></div><div class="stat">المجموعات: <b>12</b></div><div class="stat">المتأهلون: <b id="qualCount">0 / 32</b></div></div>
+<div class="progress"><span id="qualProgress"></span></div></div>
+<div id="groupsGrid" class="group-grid"></div>
+<div class="panel"><h3>أفضل 8 منتخبات من المركز الثالث</h3><div class="muted">اختار ثمانية منتخبات من أصحاب المركز الثالث. كل منتخب يمكن اختياره مرة واحدة فقط.</div><div id="thirdGrid" class="thirds"></div></div>
+<div class="panel"><button class="primary" id="toBracket">افتح خطاطة دور 32 ←</button><span id="qualHint" class="muted" style="margin-right:10px">خاصك تكمل 32 متأهلاً.</span></div>
+</section>
+<section id="bracket" class="tab hidden">
+<div class="panel"><h2>خطاطة البطولة كاملة</h2><div class="muted">الخطاطة أفقية مثل الصورة التي أرسلتها. اسحب يميناً ويساراً لرؤية كل الأدوار. ابدأ بإدخال 32 متأهلاً في دور 32، ثم اختَر الفائز في كل مواجهة؛ سينتقل تلقائياً إلى الدور التالي.</div>
+<div class="stats"><div class="stat">المواجهات المحسومة: <b id="played">0 / 31</b></div><div class="stat">البطل المتوقع: <b id="champName">لم يُحدد بعد</b></div></div><div class="progress"><span id="matchProgress"></span></div></div>
+<div class="bracket-wrap"><div class="bracket" id="bracketGrid"></div></div>
+<div class="panel"><div class="champion"><div class="cup">🏆</div><div>بطل العالم المتوقع</div><strong id="champion">في انتظار النهائي</strong></div></div>
+</section>
+<section id="summary" class="tab hidden">
+<div class="panel"><h2>المنتخبات المتأهلة</h2><div class="muted">قائمة مباشرة من اختياراتك في المجموعات.</div><div id="qualList" class="result-list"></div></div>
+<div class="panel"><h2>سجل الأدوار</h2><div id="resultsList" class="result-list"></div></div>
+</section>
+</main>
+<footer>ملف يعمل على الهاتف دون إنترنت بعد تنزيله. يتم حفظ اختياراتك على نفس المتصفح تلقائياً.<br>مواجهات دور 32 قابلة للتعديل يدوياً؛ لا تمثل ترتيباً رسمياً معلناً قبل اكتمال المجموعات.</footer>
+<script>
+const groups=[
+["A",[["🇶🇦","قطر"],["🇵🇦","بنما"],["🇪🇬","مصر"],["🇬🇷","اليونان"]]],
+["B",[["🇰🇷","كوريا الجنوبية"],["🇺🇬","أوغندا"],["🇳🇨","كاليدونيا الجديدة"],["🇪🇨","الإكوادور"]]],
+["C",[["🇦🇷","الأرجنتين"],["🇦🇺","أستراليا"],["🇲🇿","موزمبيق"],["🇩🇰","الدنمارك"]]],
+["D",[["🇫🇷","فرنسا"],["🇭🇹","هايتي"],["🇸🇦","السعودية"],["🇺🇾","الأوروغواي"]]],
+["E",[["🇮🇹","إيطاليا"],["🇯🇲","جامايكا"],["🇨🇮","ساحل العاج"],["🇺🇿","أوزبكستان"]]],
+["F",[["🇸🇳","السنغال"],["🇭🇷","كرواتيا"],["🇨🇺","كوبا"],["🇹🇯","طاجيكستان"]]],
+["G",[["🇲🇱","مالي"],["🇳🇿","نيوزيلندا"],["🇧🇪","بلجيكا"],["🇻🇳","فيتنام"]]],
+["H",[["🇪🇸","إسبانيا"],["🇨🇳","الصين"],["🇫🇯","فيجي"],["🇲🇦","المغرب"]]],
+["I",[["🇧🇷","البرازيل"],["🇮🇪","إيرلندا"],["🇹🇿","تنزانيا"],["🇨🇷","كوستاريكا"]]],
+["J",[["🇩🇴","جمهورية الدومينيكان"],["🇲🇪","الجبل الأسود"],["🇨🇱","تشيلي"],["🇩🇿","الجزائر"]]],
+["K",[["🇲🇽","المكسيك"],["🇷🇴","رومانيا"],["🇨🇲","الكاميرون"],["🇻🇪","فنزويلا"]]],
+["L",[["🇯🇵","اليابان"],["🇨🇴","كولومبيا"],["🇷🇸","صربيا"],["🇭🇳","هندوراس"]]]
+];
+const teamMap=Object.fromEntries(groups.flatMap(g=>g[1]).map(t=>[t[1],t[0]]));
+const allTeams=Object.keys(teamMap);
+let state={rank:{},third:[],r32:Array.from({length:32},()=>""),wins:{}};
+try{const old=JSON.parse(localStorage.getItem("u17qatar26"));if(old)state={...state,...old}}catch(e){}
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem("u17qatar26",JSON.stringify(state));render()}
+function flag(n){return n?(teamMap[n]||"⚽"):"⚽"}
+function teamLabel(n){return n?`${flag(n)} ${n}`:"— في انتظار المتأهل —"}
+function groupOptions(g,rank){let used=[1,2,3].filter(x=>x!==rank).map(x=>state.rank[g+x]).filter(Boolean);return groups.find(x=>x[0]===g)[1].map(t=>t[1]).filter(n=>!used.includes(n)||state.rank[g+rank]===n)}
+function groupHTML(){ $("groupsGrid").innerHTML=groups.map(([g,ts])=>`<div class="group"><div class="group-head"><b>المجموعة ${g}</b><span class="letter">${g}</span></div>${ts.map(([f,n])=>`<div class="team"><span class="flag">${f}</span><span>${n}</span></div>`).join("")}<div style="margin-top:9px;display:grid;gap:7px">${[1,2,3].map(i=>`<label class="muted">${["🥇 الأول","🥈 الثاني","🥉 الثالث"][i-1]}<select data-rank="${g}${i}"><option value="">اختار المنتخب</option>${groupOptions(g,i).map(n=>`<option ${state.rank[g+i]===n?"selected":""}>${n}</option>`).join("")}</select></label>`).join("")}</div></div>`).join("");
+document.querySelectorAll("[data-rank]").forEach(s=>s.onchange=()=>{state.rank[s.dataset.rank]=s.value;state.third=state.third.filter(n=>Object.values(state.rank).includes(n));save()})}
+function candidates(){return groups.map(([g])=>state.rank[g+"3"]).filter(Boolean)}
+function thirdHTML(){let cs=candidates();$("thirdGrid").innerHTML=Array.from({length:8},(_,i)=>`<div class="third"><b>${i+1}</b><select data-third="${i}"><option value="">اختار منتخباً ثالثاً</option>${cs.filter(n=>!state.third.includes(n)||state.third[i]===n).map(n=>`<option ${state.third[i]===n?"selected":""}>${n}</option>`).join("")}</select></div>`).join("");document.querySelectorAll("[data-third]").forEach(s=>s.onchange=()=>{state.third[+s.dataset.third]=s.value;state.third=state.third.filter(Boolean);save()})}
+function qualified(){return [...groups.flatMap(([g])=>[state.rank[g+"1"],state.rank[g+"2"]]),...state.third].filter(Boolean)}
+function getWinner(r,i){if(r==="r32"){let a=state.r32[i*2],b=state.r32[i*2+1],w=state.wins[r+i];return a&&b&&a!==b&&[a,b].includes(w)?w:""}let prev={r16:"r32",qf:"r16",sf:"qf",final:"sf"}[r],a=getWinner(prev,i*2),b=getWinner(prev,i*2+1),w=state.wins[r+i];return a&&b&&a!==b&&[a,b].includes(w)?w:""}
+function pair(r,i){if(r==="r32")return [state.r32[i*2]||"",state.r32[i*2+1]||""];let p={r16:"r32",qf:"r16",sf:"qf",final:"sf"}[r];return [getWinner(p,i*2),getWinner(p,i*2+1)]}
+const rounds=[["r32","دور 32",16],["r16","ثمن النهائي",8],["qf","ربع النهائي",4],["sf","نصف النهائي",2],["final","النهائي",1]];
+function matchHTML(r,i){let p=pair(r,i),winner=getWinner(r,i),select=r==="r32"?`<select data-slot="${i*2}"><option value="">اختار المنتخب الأول</option>${qualified().filter(n=>!state.r32.includes(n)||state.r32[i*2]===n).map(n=>`<option ${state.r32[i*2]===n?"selected":""}>${n}</option>`).join("")}</select><select data-slot="${i*2+1}"><option value="">اختار المنتخب الثاني</option>${qualified().filter(n=>!state.r32.includes(n)||state.r32[i*2+1]===n).map(n=>`<option ${state.r32[i*2+1]===n?"selected":""}>${n}</option>`).join("")}</select>`:`<div class="teamline">${teamLabel(p[0])}</div><div class="teamline">${teamLabel(p[1])}</div>`;
+return `<div class="match"><small>مباراة ${i+1}</small>${select}<select data-win="${r+i}" ${!p[0]||!p[1]||p[0]===p[1]?"disabled":""}><option value="">اختار الفائز</option>${p.filter(Boolean).map(n=>`<option ${winner===n?"selected":""}>${n}</option>`).join("")}</select>${winner?`<small class="ok">✓ تأهل ${teamLabel(winner)}</small>`:""}</div>`}
+function renderBracket(){let names=["دور 32","ثمن النهائي","ربع النهائي","نصف النهائي"];let roundsData=[["r32",16],["r16",8],["qf",4],["sf",2]];let cols=roundsData.map(([r,count],col)=>`<div class="round"><h3>${names[col]} · اليسار</h3>${Array.from({length:count/2},(_,i)=>matchHTML(r,i)).join("")}</div>`).join("");
+let center=`<div class="round center-final"><h3>🏆 النهائي</h3>${matchHTML("final",0)}<div class="champion"><div class="cup">🏆</div><div>بطل العالم</div><strong>${getWinner("final",0)||"؟"}</strong></div></div>`;
+let right=roundsData.slice().reverse().map(([r,count],col)=>`<div class="round"><h3>${names[3-col]} · اليمين</h3>${Array.from({length:count/2},(_,i)=>matchHTML(r,i+count/2)).join("")}</div>`).join("");
+$("bracketGrid").innerHTML=cols+center+right;
+document.querySelectorAll("[data-slot]").forEach(s=>s.onchange=()=>{state.r32[+s.dataset.slot]=s.value;state.wins={};save()});
+document.querySelectorAll("[data-win]").forEach(s=>s.onchange=()=>{state.wins[s.dataset.win]=s.value;let idx=rounds.findIndex(x=>x[0]===s.dataset.win.replace(/[0-9]/g,""));if(idx>=0){let key=s.dataset.win;let n=+key.slice(key.match(/[0-9]/).index);rounds.slice(idx+1).forEach(([r])=>{for(let k of Object.keys(state.wins))if(k.startsWith(r))delete state.wins[k]})}save()});
+}
+function render(){groupHTML();thirdHTML();let q=qualified();$("qualCount").textContent=q.length+" / 32";$("qualProgress").style.width=Math.min(100,q.length/32*100)+"%";$("toBracket").disabled=q.length!==32;$("qualHint").textContent=q.length===32?"اكتمل التأهل، تقدر تبدا دور 32.":"باقي "+(32-q.length)+" اختيارات لإكمال 32 متأهلاً.";
+$("qualList").innerHTML=q.map(n=>`<div class="result"><span>${teamLabel(n)}</span><b class="ok">متأهل</b></div>`).join("")||'<div class="muted">لم يتم اختيار المتأهلين بعد.</div>';
+renderBracket();let count=0;rounds.forEach(([r,n])=>{for(let i=0;i<n;i++)if(getWinner(r,i))count++});$("played").textContent=count+" / 31";$("matchProgress").style.width=count/31*100+"%";let champ=getWinner("final",0);$("champion").textContent=champ?teamLabel(champ):"في انتظار النهائي";$("champName").textContent=champ||"لم يُحدد بعد";
+$("resultsList").innerHTML=rounds.map(([r,n])=>Array.from({length:n},(_,i)=>getWinner(r,i)?`<div class="result"><span>${r==="r32"?"دور 32":r==="r16"?"ثمن النهائي":r==="qf"?"ربع النهائي":r==="sf"?"نصف النهائي":"النهائي"} · ${i+1}</span><b>${teamLabel(getWinner(r,i))}</b></div>`:"").join("")).join("")||'<div class="muted">لم تبدأ المباريات بعد.</div>'}
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("hidden",x.id!==b.dataset.tab));if(b.dataset.tab==="bracket")render()});
+$("toBracket").onclick=()=>{document.querySelector('[data-tab="bracket"]').click();};
+$("reset").onclick=()=>{if(confirm("واش متأكد تبغي تمسح جميع الاختيارات والنتائج؟")){state={rank:{},third:[],r32:Array.from({length:32},()=>""),wins:{}};save()}};
+render();
+</script></body></html>
